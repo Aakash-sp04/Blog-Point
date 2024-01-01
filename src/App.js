@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './screens/Home';
+import About from './screens/About';
+import Contact from './screens/Contact';
+import Error from './screens/Error';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import Blog from './screens/Blog';
+import Compose from './screens/Compose';
+import Update from './screens/Update';
+import MyBlogs from './screens/Myblogs';
+import Control from './screens/Control';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/contact' element={<Contact/>} />
+          <Route path='/*' element={<Error/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+          <Route path='/blog/:id' element={<Blog/>} />
+          <Route path='/control/:id' element={<Control/>} />
+          <Route path='/myblog' element={<MyBlogs/>} />
+          <Route path='/compose' element={<Compose/>} />
+          <Route path='/update/:id' element={<Update/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
