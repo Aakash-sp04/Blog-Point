@@ -72,13 +72,6 @@ export default function Login() {
                 <div className="divider d-flex align-items-center my-4 px-3">
                   <p className="text-center mx-3 mb-0">OR</p>
                 </div>
-                
-                <div className="form-group px-3 d-flex justify-content-center">
-                  <a className="btn btn-block btn-social btn-google py-2" href="http://localhost:8000/auth/google" role="button">
-                    <i className="fab fa-google"></i>
-                    Login with Google
-                  </a>
-                </div>
 
                 <div className="form-group pt-3 d-flex justify-content-center">
                   Don't have an account? <Link to="/register"> Register</Link>

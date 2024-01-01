@@ -1,26 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate} from 'react-router-dom'
 
 export default function Navbar() {
   const navigate = useNavigate()
-
-  useEffect(() => {
-    // Retrieve the token from the 'authToken' cookie
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    const token = getCookie('connect.sid');
-
-    // Store the token in local storage
-    if (token) {
-      localStorage.setItem('connect.sid', token);
-      console.log((localStorage.getItem('connect.sid')))
-    }
-  },[])
+  
   return (
     <div>
       <nav className="navbar navbar-expand-sm">
@@ -39,31 +22,31 @@ export default function Navbar() {
                 <NavLink className="nav-NavLink" to="/">HOME</NavLink>
               </li>
 
-              {(!localStorage.getItem('authToken')) ?
+              {(!localStorage.getItem('authToken')) ? 
                 <li className="nav-item p-2" id="auth">
                   <NavLink className="nav-NavLink" to="/register">SIGN UP</NavLink>
                 </li>
                 :
                 <li className="nav-item p-2 font-weight-bold text-white" id="auth">
-                  <div type='button' className="nav-NavLink" onClick={() => {
+                  <div type='button' className="nav-NavLink" onClick={()=>{
                     localStorage.removeItem('authToken')
                     localStorage.removeItem('userEmail')
                     navigate('/login')
                   }}>LOGOUT</div>
                 </li>
-              }
+              }              
 
               <li className="nav-item p-2" id="about">
                 <NavLink className="nav-NavLink" to="/about">ABOUT</NavLink>
               </li>
-
+              
               <li className="nav-item p-2" id="composeBlog">
-                <div type='button' className="nav-NavLink font-weight-bold text-white" onClick={() => {
-                  !localStorage.getItem('authToken') ?
-                    navigate('/register') : navigate('/compose')
+                <div type='button' className="nav-NavLink font-weight-bold text-white" onClick={()=>{
+                    !localStorage.getItem('authToken') ?
+                      navigate('/register') : navigate('/compose')
                 }}>COMPOSE BLOG</div>
               </li>
-
+              
               {!localStorage.getItem('authToken') ?
                 <li className="nav-item p-2" id="contact">
                   <NavLink className="nav-NavLink" to="/contact">CONTACT</NavLink>
@@ -73,7 +56,7 @@ export default function Navbar() {
                   <NavLink className="nav-NavLink" to="/myblog">MY BLOGS</NavLink>
                 </li>
               }
-
+              
             </ul>
           </div>
         </div>
