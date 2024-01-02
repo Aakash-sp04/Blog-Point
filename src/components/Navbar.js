@@ -15,19 +15,19 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse">
 
             <ul className="navbar-nav fw-bold ms-auto">
-              <li className="nav-item p-2" id="home">
+              <li className="nav-item p-2">
                 <NavLink className="nav-NavLink" to="/">HOME</NavLink>
               </li>
 
               {(!localStorage.getItem('authToken')) ? 
-                <li className="nav-item p-2" id="auth">
+                <li className="nav-item p-2">
                   <NavLink className="nav-NavLink" to="/register">SIGN UP</NavLink>
                 </li>
                 :
-                <li className="nav-item p-2 font-weight-bold text-white" id="auth">
+                <li className="nav-item p-2 font-weight-bold text-white" id="navbar-btn">
                   <div type='button' className="nav-NavLink" onClick={()=>{
                     localStorage.removeItem('authToken')
                     localStorage.removeItem('userEmail')
@@ -36,23 +36,23 @@ export default function Navbar() {
                 </li>
               }              
 
-              <li className="nav-item p-2" id="about">
+              <li className="nav-item p-2">
                 <NavLink className="nav-NavLink" to="/about">ABOUT</NavLink>
               </li>
               
-              <li className="nav-item p-2" id="composeBlog">
-                <div type='button' className="nav-NavLink font-weight-bold text-white" onClick={()=>{
+              <li className="nav-item p-2" id="navbar-btn">
+                <div type='button' className="nav-NavLink" onClick={()=>{
                     !localStorage.getItem('authToken') ?
                       navigate('/register') : navigate('/compose')
                 }}>COMPOSE BLOG</div>
               </li>
               
               {!localStorage.getItem('authToken') ?
-                <li className="nav-item p-2" id="contact">
+                <li className="nav-item p-2">
                   <NavLink className="nav-NavLink" to="/contact">CONTACT</NavLink>
                 </li>
                 :
-                <li className="nav-item p-2" id="composeBlog">
+                <li className="nav-item p-2">
                   <NavLink className="nav-NavLink" to="/myblog">MY BLOGS</NavLink>
                 </li>
               }

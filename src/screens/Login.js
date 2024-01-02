@@ -45,7 +45,7 @@ export default function Login() {
   }
 
   return (
-    <div style={{ backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '120vh', paddingTop: '5%' }}>
+    <div style={{ backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '110vh', paddingTop: '7%' }}>
       <Navbar />
 
       <div className="container">
@@ -56,25 +56,25 @@ export default function Login() {
               <div className="card p-5 w-30">
 
                 <form onSubmit={handleSubmit}>
-                  <div className="form-group px-3">
+                  <div className="form-group px-3 pb-2">
                     <label htmlFor="username">E-mail</label>
                     <input type="text" className="form-control" name="email" value={loginInfo.email} onChange={handleChange} required />
                   </div>
-                  <div className="form-group px-3 py-2">
+                  <div className="form-group px-3 pb-2">
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" name="password" value={loginInfo.password} onChange={handleChange} required />
                   </div>
-                  <div className="form-group px-3 py-2 d-flex justify-content-center">
-                    <button type="submit" className="px-4 py-2">Login</button>
+                  <div className="form-group py-3 d-flex justify-content-center">
+                    <button type="submit" className='px-4 py-2'>Login</button>
                   </div>
                 </form>
 
-                <div className="divider d-flex align-items-center my-4 px-3">
-                  <p className="text-center mx-3 mb-0">OR</p>
+                <div className="divider d-flex align-items-center my-3 px-3">
+                  <p className="text-center mx-2 mb-0">OR</p>
                 </div>
 
                 <div className="form-group pt-3 d-flex justify-content-center">
-                  Don't have an account? <Link to="/register"> Register</Link>
+                  Don't have account? <Link to="/register"> Register</Link>
                 </div>
               </div>
             </div>

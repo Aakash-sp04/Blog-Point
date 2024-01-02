@@ -59,7 +59,7 @@ export default function Home() {
 
         {/* Search bar */}
         <div className="p-5 d-flex justify-content-center">
-          <span className="input-group-text bg-secondary bg-gradient" >
+          <span className="input-group-text bg-dark bg-gradient" >
             <i className="fas fa-search" style={{ color: 'white' }} ></i>
           </span>
           <Select options={categories}
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div style={{ marginTop: '350px', marginBottom: '50px', fontFamily : 'Kanit'}}>
+      <div className="content-below-image pb-5">
         <div className='col px-5'>
           <div className="card p-3 bg-dark">
             <div className="card p-4">

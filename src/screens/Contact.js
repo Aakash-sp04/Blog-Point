@@ -54,12 +54,12 @@ export default function Contact() {
         <p>Want to know about our upcoming daily blogs ? Fill out the form below to get subscribed to our g-mail service</p>
       </div>
 
-      <div className="content-below-image p-5">
+      <div className="content-below-image-without-text px-4">
         <form onSubmit={handleSubmit}>
           <div className='col'>
             <div className="card p-3 bg-dark">
               <div className="card p-5">
-                <h1 className="h3 mb-3 ">Subsctribe to our Blog!</h1>
+                <h1 className="h3 mb-3">Subsctribe to our Blog!</h1>
                 <div className="mb-3">
                   <input type="text" name="firstname" value={contactInfo.firstname} className="p-2 col-sm-3" onChange={handleChange} placeholder="First name" required autofocus />
                 </div>

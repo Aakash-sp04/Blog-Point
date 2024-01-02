@@ -63,7 +63,7 @@ export default function Compose() {
         <p>Write a suitable blog through which you can express your thoughs & views.</p>
       </div>
 
-      <div className='content-below-image px-4 fw-bold'>
+      <div className='content-below-image-without-text px-4 fw-bold'>
         <form onSubmit={handleSubmit} className="px-4" >
           <div className='row'>
             <div className="col p-2 mx-4 w-50">
@@ -107,7 +107,7 @@ export default function Compose() {
           </div>
 
           <div className="p-2 d-flex justify-content-center">
-            <button className="btn btn-outline-primary btn-lg" type="submit">Publish</button>
+            <button type="submit">Publish</button>
           </div>
         </form>
       </div>

@@ -100,29 +100,32 @@ export default function Post() {
         <p>Please share your thoughs & views on Blogs</p>
       </div>
 
-      <div className='container' style={{ marginTop: '500px' }}>
-        <div className="m-5 d-flex justify-content-center">
-          <h1>{blogData.title}</h1>
-        </div>
-        <div className="row m-3">
-          <div className="col-6 d-flex justify-content-start">
-            <p><em>on {blogData.date}</em></p>
+      <div className='content-below-image-without-text'>
+        <div className='container-fluid'>
+          <div className="m-5 d-flex justify-content-center">
+            <h1>{blogData.title}</h1>
           </div>
-          <div className="col-6 d-flex justify-content-end">
-            <p><em>by {blogData.name}</em></p>
+          <div className="row m-3">
+            <div className="col-6 d-flex justify-content-start">
+              <p><em>on {blogData.date}</em></p>
+            </div>
+            <div className="col-6 d-flex justify-content-end">
+              <p><em>by {blogData.name}</em></p>
+            </div>
+          </div>
+          <div className='para-content px-4 pb-5'>
+            <p>{blogData.content}</p>
           </div>
         </div>
-        <div className='para-content'>
-          <p>{blogData.content}</p>
+
+        <div>
+          <button 
+            onClick={handleLike}>
+            Like {blogData.like}
+          </button>
         </div>
       </div>
 
-      <div>
-        <button style={{ backgroundColor: likeActive ? "cyan" : "" }}
-          onClick={handleLike}>
-          Like {blogData.like}
-        </button>
-      </div>
       <Footer />
     </div>
   )

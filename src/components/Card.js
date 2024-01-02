@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default function Cards(props) {
     return (
 
-        <div className='card'>
-            <div className="card-header fst-italic">
+        <div className='card card-shadow'>
+            <div className="card-header bg-dark text-white fst-italic">
                 ~by {props.name}
             </div>
             <div className="card-body">

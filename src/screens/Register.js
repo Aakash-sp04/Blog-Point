@@ -42,7 +42,7 @@ export default function Register() {
   }
 
   return (
-    <div style={{backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '120vh' , paddingTop : '5%'}}>
+    <div style={{backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '120vh' , paddingTop : '7%'}}>
       <Navbar />
       
       <div className="container">
@@ -53,25 +53,25 @@ export default function Register() {
               <div className="card p-5 w-30">
 
                 <form onSubmit={handleSubmit}>
-                  <div className="form-group px-3">
+                  <div className="form-group px-3 pb-2">
                     <label htmlFor="username">Username</label>
                     <input type="text" className="form-control" name="username" value={userInfo.username} onChange={handleChange} placeholder="Min 3 characters length" required/>
                   </div>
-                  <div className="form-group px-3">
+                  <div className="form-group px-3 pb-2">
                     <label htmlFor="email">Email</label>
                     <input type="email" className="form-control" name="email" value={userInfo.email} onChange={handleChange} placeholder="Enter valid E-mail i.e. (John@gmail.com)" required/>
                   </div>
-                  <div className="form-group px-3 py-2">
+                  <div className="form-group px-3 pb-2">
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" name="password" value={userInfo.password} onChange={handleChange} placeholder="Min 6 characters length" required />
                   </div>
-                  <div className="form-group px-3 py-2 d-flex justify-content-center">
-                    <button type="submit" onSubmit={handleSubmit} className="px-4 py-2">Register</button>
+                  <div className="form-group py-3 d-flex justify-content-center">
+                    <button type="submit" className='px-4 py-2' onSubmit={handleSubmit}>Register</button>
                   </div>
                 </form>
 
-                <div className="divider d-flex align-items-center my-4 px-3">
-                  <p className="text-center mx-3 mb-0">OR</p>
+                <div className="divider d-flex align-items-center my-3 px-3">
+                  <p className="text-center mx-2 mb-0">OR</p>
                 </div>
 
                 <div className="form-group pt-3 d-flex justify-content-center">

@@ -12,9 +12,9 @@ export default function Post() {
   const imgUrl = 'https://source.unsplash.com/random/900x700?'
   const [blogData, setBlogData] = useState('')
 
-  const handleDelete = async () =>{
+  const handleDelete = async () => {
 
-    if(window.confirm('Are you sure? Do you want to delete this blog?') === true){
+    if (window.confirm('Are you sure? Do you want to delete this blog?') === true) {
       const options = {
         method: "POST",
         headers: {
@@ -22,7 +22,7 @@ export default function Post() {
         },
         body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
       }
-  
+
       const response = await fetch('http://localhost:8000/api/deleteblog', options);
       const json = await response.json()
       if (!json.success) {
@@ -68,26 +68,28 @@ export default function Post() {
         <p>Then, Edit / Delete your blog by your own.</p>
       </div>
 
-      <div className='container' style={{ marginTop: '500px' }}>
-        <div className="m-5 d-flex justify-content-center">
-          <h1>{blogData.title}</h1>
-        </div>
-        <div className="row m-3">
-          <div className="col-6 d-flex justify-content-start">
-            <p><em>on {blogData.date}</em></p>
+      <div className='content-below-image-without-text'>
+        <div className='container-fluid'>
+          <div className="m-5 d-flex justify-content-center">
+            <h1>{blogData.title}</h1>
           </div>
-          <div className="col-6 d-flex justify-content-end">
-            <p><em>by {blogData.name}</em></p>
+          <div className="row m-3">
+            <div className="col-6 d-flex justify-content-start">
+              <p><em>on {blogData.date}</em></p>
+            </div>
+            <div className="col-6 d-flex justify-content-end">
+              <p><em>by {blogData.name}</em></p>
+            </div>
+          </div>
+          <div className="para-content px-4 pb-5">
+            <p>{blogData.content}</p>
           </div>
         </div>
-        <div className="para-content">
-          <p>{blogData.content}</p>
-        </div>
-      </div>
 
-      <div className="d-flex justify-content-center">
-        <button onClick={() => { navigate('/update/' + id) }} className="btn btn-warning btn-md mx-2 fw-bold" type="submit"><span><i class="fas fa-pen"></i></span> Edit</button>
-        <button onClick={handleDelete} className="btn btn-danger btn-md mx-2 fw-bold" type="submit"><span><i class="fas fa-trash"></i></span> Delete</button>
+        <div className="d-flex justify-content-center">
+          <button onClick={() => { navigate('/update/' + id) }}  type="submit"><span><i class="fas fa-pen"></i></span> Edit</button>
+          <button onClick={handleDelete}  type="submit"><span><i class="fas fa-trash"></i></span> Delete</button>
+        </div>
       </div>
 
       <Footer />

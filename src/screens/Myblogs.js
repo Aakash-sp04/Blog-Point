@@ -24,9 +24,9 @@ export default function Myblogs() {
       navigate('/*')
     } else if (!json.userBlogs) {
       navigate('/compose')
-      setTimeout(()=>{  //To avoid alert call before useNavigate
+      setTimeout(() => {  //To avoid alert call before useNavigate
         alert('You have not compose any blog till now...!')
-      },500)
+      }, 500)
     } else if (json.userBlogs) {
       setBlogData(json.userBlogs)
     }
@@ -48,43 +48,43 @@ export default function Myblogs() {
         <p>View, edit or delete your own blog according to your convenience.</p>
       </div>
 
-      {/* In map second argument is iterator */}
-      {blogData.map((data, i) => {
-        if (i === 0) {
-          return (
-            <div style={{ marginTop: '500px', padding: '30px 0', fontFamily: 'Kanit' }}>
-              <div className='col px-5'>
-                <div className="card p-3 bg-dark">
-                  <div className="card p-4">
-                    <h2><i>Blogs by {data.name}</i></h2>
+      <div className='content-below-image-without-text'>
+        {/* In map second argument is iterator */}
+        {blogData.map((data, i) => {
+          if (i === 0) {
+            return (
+                <div className='col px-5 pb-5'>
+                  <div className="card p-3 bg-dark">
+                    <div className="card p-4">
+                      <h2><i>Blogs by {data.name}</i></h2>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )
-        }
-      })}
-
-      <div className='container-fluid'>
-        <div className='row px-5'>
-          {
-            blogData.map(data => {
-              return (
-                <div className='col-lg-3 col-md-4 col-sm-12 py-2'>
-                  <Card
-                    key={data._id}
-                    name={data.name}
-                    img={imgUrl + data.contentType}
-                    alt={data.contentType}
-                    title={data.title}
-                    content={data.content.substr(0, 100)}
-                    date={data.date}
-                    blogLink={'/control/' + data._id}
-                  />
-                </div>
-              )
-            })
+            )
           }
+        })}
+
+        <div className='container-fluid'>
+          <div className='row px-5'>
+            {
+              blogData.map(data => {
+                return (
+                  <div className='col-lg-3 col-md-4 col-sm-12 py-2'>
+                    <Card
+                      key={data._id}
+                      name={data.name}
+                      img={imgUrl + data.contentType}
+                      alt={data.contentType}
+                      title={data.title}
+                      content={data.content.substr(0, 100)}
+                      date={data.date}
+                      blogLink={'/control/' + data._id}
+                    />
+                  </div>
+                )
+              })
+            }
+          </div>
         </div>
       </div>
 
