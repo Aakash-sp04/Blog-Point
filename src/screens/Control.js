@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -14,7 +14,7 @@ export default function Post() {
 
   const handleDelete = async () =>{
 
-    if(window.confirm('Are you sure? Do you want to delete this blog?') == true){
+    if(window.confirm('Are you sure? Do you want to delete this blog?') === true){
       const options = {
         method: "POST",
         headers: {
@@ -56,7 +56,7 @@ export default function Post() {
 
   useEffect(() => {
     loadBlog()
-  }, [])
+  })
   return (
     <div>
       <Navbar />
