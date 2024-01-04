@@ -7,14 +7,10 @@ router.post('/userblog',async(req, res)=>{
         let email = req.body.userEmail
         let userByEmail = await userCollection.User.findOne({email})
 
-        if(!userByEmail){
-            return res.status(400).json({success:false});   
-        }
-
         let userBlogs = await userByEmail.myBlogs
         // console.log(userBlogs);       
         if(userBlogs.length < 1){
-            return res.json({success:true, userBlogs: ''})
+            return res.json({success:false})
         }
         return res.json({success:true, userBlogs:userBlogs})
     } catch (error) {

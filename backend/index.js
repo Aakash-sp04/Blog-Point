@@ -31,6 +31,8 @@ app.use('/api', require('./Routes/SpecificDisplayBlog'))
 app.use('/api', require('./Routes/LikeDislikeBlog'))
 app.use('/api', require('./Routes/UserBlog'))
 app.use('/api', require('./Routes/ContactPage'))
+app.use('/api', require('./Routes/ForgetPasswordUser'))
+app.use('/api', require('./Routes/ResetPasswordUser'))
 
 app.get('/', (req, res) => {
     res.send('Hello World!')

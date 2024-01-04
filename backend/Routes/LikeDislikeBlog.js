@@ -1,43 +1,59 @@
 const express = require('express')
 const router = express.Router()
 const postCollection = require('../models/Post')
-const userCollection = require('../models/User')
 
 router.post('/likeblog', async (req, res) => {
     try {
         let isLogin = req.body.localStrInfo
         if (!isLogin) {
-            return res.status(400).json({ msg: true });
+            return res.status(400).json({ success: false, msg: 'login required' });
         }
-        let flag = 1;   //inc by 1
-        let likeSt = req.body.likeState;
-        if(!likeSt){
-            flag = -1
-        }
-        console.log(likeSt);
-        console.log(flag);
 
-        let _id = req.body.blogId
-        let updateBlog = await postCollection.Post.findByIdAndUpdate({ _id }, {
-            $inc: {
-                like: flag
+        let updateBlog = await postCollection.Post.findByIdAndUpdate(req.body.blogId, {
+            $push: {
+                likes: isLogin
             }
+        }, {
+            new: true
         })
-        console.log(updateBlog);
-        if (!updateBlog) {
-            return res.status(400).json({ success: false, result: "Like not updated!" });
-        }
 
-        if(flag == 1){
-            await userCollection.User.updateOne({email:isLogin}, {$push: {likedBlogs:updateBlog}})
-        }else if(flag == -1){
-            await userCollection.User.updateOne({email:isLogin}, {$pull: {likedBlogs:{_id : updateBlog._id}}})
+        // console.log(updateBlog);
+        if(!updateBlog){
+            return res.status(400).json({ success: false, msg: 'error on like' });
+        }else{
+            return res.status(200).json({ success: true, msg: 'blog liked', updateBlog : updateBlog })
         }
-        console.log(updateBlog.like);
-        return res.json({ success: true, blogIdData: updateBlog });
     } catch (error) {
         console.log(error);
         res.json({ success: false })
     }
 })
+
+router.post('/unlikeblog', async (req, res) => {
+    try {
+        let isLogin = req.body.localStrInfo
+        if (!isLogin) {
+            return res.status(400).json({ success: false, msg: 'login required' });
+        }
+
+        let updateBlog = await postCollection.Post.findByIdAndUpdate(req.body.blogId, {
+            $pull: {
+                likes: isLogin
+            }
+        }, {
+            new: true
+        })
+
+        // console.log(updateBlog);
+        if(!updateBlog){
+            return res.status(400).json({ success: false, msg: 'error on unlike' });
+        }else{
+            return res.status(200).json({ success: true, msg: 'blog unliked', updateBlog : updateBlog })
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false })
+    }
+})
+
 module.exports = router

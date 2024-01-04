@@ -11,6 +11,8 @@ import Compose from './screens/Compose';
 import Update from './screens/Update';
 import MyBlogs from './screens/Myblogs';
 import Control from './screens/Control';
+import ForgetPassword from './screens/ForgetPassword';
+import ResetPassword from './screens/ResetPassword';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path='/contact' element={<Contact/>} />
           <Route path='/*' element={<Error/>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/forget-password' element={<ForgetPassword/>}/>
+          <Route path="/reset-password/:id/:token" element={<ResetPassword/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/blog/:id' element={<Blog/>} />
           <Route path='/control/:id' element={<Control/>} />

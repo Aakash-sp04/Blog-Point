@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const ObjectId = require('mongodb').ObjectId;
 
 const postSchema = new mongoose.Schema({
     name : {
@@ -27,14 +28,7 @@ const postSchema = new mongoose.Schema({
         type : String,
         default : Date.now
     },
-    like : {
-        type : Number,
-        default : 0
-    },
-    dislike : {
-        type : Number,
-        default : 0
-    }
+    likes: [{type: String, ref: "User"}]
 })
 const Post = mongoose.model('post', postSchema)
 module.exports = {Post, postSchema}

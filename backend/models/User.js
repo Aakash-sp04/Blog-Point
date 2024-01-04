@@ -19,10 +19,7 @@ const userSchema = new mongoose.Schema({
         trim : true,
         minLength : 6
     },
-    googleId : String,
-    myBlogs : [postCollection.postSchema],
-    likedBlogs : [postCollection.postSchema],
-    dislikedBlogs : [postCollection.postSchema]
+    myBlogs : [postCollection.postSchema]
 })
 
 const User = mongoose.model('user', userSchema)

@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(JSON.stringify({email: loginInfo.email, password: loginInfo.password}));
+    // console.log(JSON.stringify({email: loginInfo.email, password: loginInfo.password}));
 
     const options = {
       method: "POST",
@@ -31,7 +31,7 @@ export default function Login() {
     if (json.success) {
       localStorage.setItem('userEmail', loginInfo.email)
       localStorage.setItem('authToken', json.authToken)
-      console.log(localStorage.getItem('authToken'));
+      // console.log(localStorage.getItem('authToken'));
       navigate('/') //On successful login navigate to Home page
     }
   }
@@ -60,9 +60,12 @@ export default function Login() {
                     <label htmlFor="username">E-mail</label>
                     <input type="text" className="form-control" name="email" value={loginInfo.email} onChange={handleChange} required />
                   </div>
-                  <div className="form-group px-3 pb-2">
+                  <div className="form-group px-3">
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" name="password" value={loginInfo.password} onChange={handleChange} required />
+                  </div>
+                  <div className="form-group px-3 d-flex justify-content-left">
+                    Forget Password? <Link to="/forget-password"> Reset Password</Link>
                   </div>
                   <div className="form-group py-3 d-flex justify-content-center">
                     <button type="submit" className='px-4 py-2'>Login</button>
@@ -79,7 +82,6 @@ export default function Login() {
               </div>
             </div>
           </div>
-
 
         </div>
       </div>

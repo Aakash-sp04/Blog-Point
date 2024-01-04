@@ -21,13 +21,11 @@ export default function Myblogs() {
     const json = await response.json()
 
     if (!json.success) {
-      navigate('/*')
-    } else if (!json.userBlogs) {
       navigate('/compose')
       setTimeout(() => {  //To avoid alert call before useNavigate
         alert('You have not compose any blog till now...!')
-      }, 500)
-    } else if (json.userBlogs) {
+      }, 1000)
+    } else {
       setBlogData(json.userBlogs)
     }
   }
