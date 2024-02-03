@@ -67,13 +67,13 @@ export default function Myblogs() {
             {
               blogData.map(data => {
                 return (
-                  <div className='col-lg-3 col-md-4 col-sm-12 py-2'>
+                  <div className='col-lg-3 col-md-4 col-sm-12 py-2 d-flex align-items-stretch'>
                     <Card
                       key={data._id}
                       name={data.name}
                       img={imgUrl + data.contentType}
                       alt={data.contentType}
-                      title={data.title}
+                      title={data.title.length > 30 ? data.title.substr(0,30)+"..." : data.title}
                       content={data.content.substr(0, 100)}
                       date={data.date}
                       blogLink={'/control/' + data._id}

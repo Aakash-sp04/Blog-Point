@@ -107,7 +107,7 @@ export default function Compose() {
           </div>
 
           <div className="p-2 d-flex justify-content-center">
-            <button type="submit">Publish</button>
+            <button type="submit" className='px-5 py-2'>Publish</button>
           </div>
         </form>
       </div>

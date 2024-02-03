@@ -34,33 +34,25 @@ function ResetPassword() {
     }
 
     return (
-        <div style={{ backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '110vh', paddingTop: '7%' }}>
+      <div style={{ backgroundImage: "url(/images/login1.avif)", backgroundSize: '100% 100%', height: '100vh', paddingTop: '7%' }}>
       <Navbar />
 
-      <div className="container">
-        <div className="row d-flex justify-content-center">
-          <div className="col-sm-8">
-            <div className="card p-2 w-30 bg-dark">
-              <div className="card p-5 w-30">
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group px-3 pb-2">
-                    <label htmlFor="password">New Password</label>
-                    <input type="password" placeholder="Enter new password" className="form-control" name="password" onChange={(e) => setPassword(e.target.value)} required />
-                  </div>
-                  <div className="form-group py-3 d-flex justify-content-center">
-                    <button type="submit" className='px-4 py-2'>Update Password</button>
-                  </div>
-                </form>
-
-                <div className="divider d-flex align-items-center my-3 px-3">
-                  <p className="text-center mx-2 mb-0">OR</p>
-                </div>
-                <div className="form-group pt-3 d-flex justify-content-center">
-                  Back to login?<Link to="/login"> Login</Link>
-                </div>
-              </div>
-            </div>
+      <div className="wrapper">
+        <div className="logo">
+          <img src='/images/logo.png' alt="logo" />
+        </div>
+        <div className="title">
+          <p>Reset Password Page!</p>
+        </div>
+        <form className="p-3 mt-3" onSubmit={handleSubmit}>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input type="password" name="password" id="pwd" placeholder="Enter new Password" onChange={(e) => setPassword(e.target.value)} required />
           </div>
+          <button className="btn mt-3">Update Password</button>
+        </form>
+        <div className="text-center fs-6">
+          <Link to="/login">Back to login?</Link> or <Link to="/register">Sign up</Link>
         </div>
       </div>
 

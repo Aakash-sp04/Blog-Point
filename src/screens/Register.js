@@ -42,46 +42,33 @@ export default function Register() {
   }
 
   return (
-    <div style={{backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '120vh' , paddingTop : '7%'}}>
+    <div style={{backgroundImage: "url(/images/login1.avif)", backgroundSize: '100% 100%', height: '120vh' , paddingTop : '7%'}}>
       <Navbar />
       
-      <div className="container">
-
-        <div className="row d-flex justify-content-center">
-          <div className="col-sm-8">
-            <div className="card p-2 w-30 bg-dark">
-              <div className="card p-5 w-30">
-
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group px-3 pb-2">
-                    <label htmlFor="username">Username</label>
-                    <input type="text" className="form-control" name="username" value={userInfo.username} onChange={handleChange} placeholder="Min 3 characters length" required/>
-                  </div>
-                  <div className="form-group px-3 pb-2">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" className="form-control" name="email" value={userInfo.email} onChange={handleChange} placeholder="Enter valid E-mail i.e. (John@gmail.com)" required/>
-                  </div>
-                  <div className="form-group px-3 pb-2">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password" value={userInfo.password} onChange={handleChange} placeholder="Min 6 characters length" required />
-                  </div>
-                  <div className="form-group py-3 d-flex justify-content-center">
-                    <button type="submit" className='px-4 py-2' onSubmit={handleSubmit}>Register</button>
-                  </div>
-                </form>
-
-                <div className="divider d-flex align-items-center my-3 px-3">
-                  <p className="text-center mx-2 mb-0">OR</p>
-                </div>
-
-                <div className="form-group pt-3 d-flex justify-content-center">
-                  Already have an account? <Link to="/login"> Login</Link>
-                </div>
-
-              </div>
-            </div>
+      <div className="wrapper">
+        <div className="logo">
+          <img src='/images/logo.png' alt="logo" />
+        </div>
+        <div className="title">
+          <p>Sign up Page!</p>
+        </div>
+        <form className="p-3 mt-3" onSubmit={handleSubmit}>
+        <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input type="text" className="form-control" name="username" value={userInfo.username} onChange={handleChange} placeholder="Min. 3 characters length" required/>
           </div>
-
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input type="email" className="form-control" name="email" id='userName' value={userInfo.email} onChange={handleChange} placeholder="Enter valid E-mail" required/>
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input type="password" className="form-control" id='pwd' name="password" value={userInfo.password} onChange={handleChange} placeholder="Min. 6 characters length" required />
+          </div>
+          <button className="btn mt-3">Register</button>
+        </form>
+        <div className="text-center fs-6">
+          <Link to="/login">Have an account? Login</Link>
         </div>
       </div>
 

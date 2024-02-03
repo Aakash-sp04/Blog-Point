@@ -42,39 +42,30 @@ export default function Contact() {
     })
   }
   return (
-    <div>
+    <div style={{ backgroundImage: "url(/images/login1.avif)", backgroundSize: '100% 100%', height: '120vh', paddingTop: '7%' }}>
       <Navbar />
 
-      <div className='big-img'>
-        <img src="/images/contact.jpg" alt="composeImg" />
-      </div>
-
-      <div className="content-on-image">
-        <h1>Get in touch !</h1>
-        <p>Want to know about our upcoming daily blogs ? Fill out the form below to get subscribed to our g-mail service</p>
-      </div>
-
-      <div className="content-below-image-without-text px-4">
-        <form onSubmit={handleSubmit}>
-          <div className='col'>
-            <div className="card p-3 bg-dark">
-              <div className="card p-5">
-                <h1 className="h3 mb-3">Subsctribe to our Blog!</h1>
-                <div className="mb-3">
-                  <input type="text" name="firstname" value={contactInfo.firstname} className="p-2 col-sm-3" onChange={handleChange} placeholder="First name" required autofocus />
-                </div>
-                <div className="mb-3">
-                  <input type="text" name="lastname" value={contactInfo.lastname} className="p-2 col-sm-3" onChange={handleChange} placeholder="Last name" required />
-                </div>
-                <div className="mb-3">
-                  <input type="email" name="email" value={contactInfo.email} className="p-2 col-sm-3" onChange={handleChange} placeholder="Email" required />
-                </div>
-                <div className="mb-3">
-                  <button type="submit" className="p-3 mt-2 col-sm-3">Sign up</button>
-                </div>
-              </div>
-            </div>
+      <div className="wrapper">
+        <div className="logo">
+          <img src='/images/logo.png' alt="logo" />
+        </div>
+        <div className="title">
+          <p>Subscribe to our Blog Site!</p>
+        </div>
+        <form className="p-3 mt-3" onSubmit={handleSubmit}>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input type="text" name="firstname" value={contactInfo.firstname} className="p-2 col-sm-3" onChange={handleChange} placeholder="First name" required autofocus />
           </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input type="text" name="lastname" value={contactInfo.lastname} className="p-2 col-sm-3" onChange={handleChange} placeholder="Last name" required />
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input type="email" name="email" value={contactInfo.email} className="p-2 col-sm-3" onChange={handleChange} placeholder="Email" required />
+          </div>
+          <button className="btn mt-3">Subscribe</button>
         </form>
       </div>
 

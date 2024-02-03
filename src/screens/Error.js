@@ -9,7 +9,7 @@ export default function Error() {
             <div className="text-center">
               <span className="display-3 d-block">Error 404 : Page not found!</span>
               <div className="mb-4 lead">Sorry, your request could not be processed.</div>
-              <button onClick={()=>{navigate('/')}} className='py-2' >Back to Home</button>
+              <button onClick={()=>{navigate('/')}} className='py-2 px-5' >Back to Home</button>
             </div>
           </div>
         </div>

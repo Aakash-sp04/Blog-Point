@@ -40,49 +40,34 @@ export default function Login() {
   function handleChange(e) {
     const { name, value } = e.target
     setLoginInfo((prevValue) => {
-      return ({...prevValue, [name]:value})
+      return ({ ...prevValue, [name]: value })
     })
   }
 
   return (
-    <div style={{ backgroundImage: "url(/images/about.jpg)", backgroundSize: 'cover', height: '110vh', paddingTop: '7%' }}>
+    <div style={{ backgroundImage: "url(/images/login1.avif)", backgroundSize: '100% 100%', height: '120vh', paddingTop: '7%' }}>
       <Navbar />
 
-      <div className="container">
-
-        <div className="row d-flex justify-content-center">
-          <div className="col-sm-8">
-            <div className="card p-2 w-30 bg-dark">
-              <div className="card p-5 w-30">
-
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group px-3 pb-2">
-                    <label htmlFor="username">E-mail</label>
-                    <input type="text" className="form-control" name="email" value={loginInfo.email} onChange={handleChange} required />
-                  </div>
-                  <div className="form-group px-3">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password" value={loginInfo.password} onChange={handleChange} required />
-                  </div>
-                  <div className="form-group px-3 d-flex justify-content-left">
-                    Forget Password? <Link to="/forget-password"> Reset Password</Link>
-                  </div>
-                  <div className="form-group py-3 d-flex justify-content-center">
-                    <button type="submit" className='px-4 py-2'>Login</button>
-                  </div>
-                </form>
-
-                <div className="divider d-flex align-items-center my-3 px-3">
-                  <p className="text-center mx-2 mb-0">OR</p>
-                </div>
-
-                <div className="form-group pt-3 d-flex justify-content-center">
-                  Don't have account? <Link to="/register"> Register</Link>
-                </div>
-              </div>
-            </div>
+      <div className="wrapper">
+        <div className="logo">
+          <img src='/images/logo.png' alt="logo" />
+        </div>
+        <div className="title">
+          <p>Login Page!</p>
+        </div>
+        <form className="p-3 mt-3" onSubmit={handleSubmit}>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input type="text" name="email" id="userName" value={loginInfo.email} placeholder="E-mail" onChange={handleChange} required />
           </div>
-
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input type="password" name="password" id="pwd" value={loginInfo.password} placeholder="Password" onChange={handleChange} required />
+          </div>
+          <button className="btn mt-3">Login</button>
+        </form>
+        <div className="text-center fs-6">
+          <Link to="/forget-password">Forget Password?</Link> or <Link to="/register">Sign up</Link>
         </div>
       </div>
 

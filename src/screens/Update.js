@@ -146,8 +146,8 @@ export default function Compose() {
                             defaultValue={blogInfo.blogContent} onChange={handleChange} required />
                     </div>
 
-                    <div className="p-2 d-flex justify-content-center">
-                        <button type="submit">Update</button>
+                    <div className="d-flex justify-content-center">
+                        <button type="submit" className="py-2 px-5">Update</button>
                     </div>
                 </form>
             </div>

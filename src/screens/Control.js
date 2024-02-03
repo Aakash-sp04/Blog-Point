@@ -87,8 +87,8 @@ export default function Post() {
         </div>
 
         <div className="d-flex justify-content-center">
-          <button onClick={() => { navigate('/update/' + id) }}  type="submit"><span><i class="fas fa-pen"></i></span> Edit</button>
-          <button onClick={handleDelete}  type="submit"><span><i class="fas fa-trash"></i></span> Delete</button>
+          <button onClick={() => { navigate('/update/' + id) }} className='py-2 px-5' type="submit"><span><i class="fas fa-pen"></i></span> Edit</button>
+          <button onClick={handleDelete}  className='py-2 px-5' type="submit"><span><i class="fas fa-trash"></i></span> Delete</button>
         </div>
       </div>
 
