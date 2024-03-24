@@ -19,7 +19,7 @@ export default function ForgetPassword() {
         { email : email }
       ),
     }
-    const response = await fetch("http://localhost:8000/api/forgetPasswordUser", options)
+    const response = await fetch("https://blog-point-backend.onrender.com/api/forgetPasswordUser", options)
     const json = await response.json()
     console.log(json);
 

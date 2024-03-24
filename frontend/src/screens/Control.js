@@ -23,7 +23,7 @@ export default function Post() {
         body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
       }
 
-      const response = await fetch('http://localhost:8000/api/deleteblog', options);
+      const response = await fetch('https://blog-point-backend.onrender.com/api/deleteblog', options);
       const json = await response.json()
       if (!json.success) {
         alert('Blog not deleted, some error occur...')
@@ -44,7 +44,7 @@ export default function Post() {
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
 
-    const response = await fetch('http://localhost:8000/api/specificBlog', options);
+    const response = await fetch('https://blog-point-backend.onrender.com/api/specificBlog', options);
     const json = await response.json()
     if (!json.success) {
       alert('Oops! error loading the Blog...')

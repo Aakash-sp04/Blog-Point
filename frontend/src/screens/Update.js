@@ -28,7 +28,7 @@ export default function Compose() {
                 { blogId:id, blogName: blogInfo.blogName, blogCategory: blogCategory, blogTitle: blogInfo.blogTitle, blogContent: blogInfo.blogContent, loggedInUserEmail: localStorage.getItem('userEmail') }
             ),
         }
-        const response = await fetch("http://localhost:8000/api/updateblog", options)
+        const response = await fetch("https://blog-point-backend.onrender.com/api/updateblog", options)
         const json = await response.json()
         console.log(json);
 
@@ -64,7 +64,7 @@ export default function Compose() {
             body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
         }
 
-        const response = await fetch('http://localhost:8000/api/specificBlog', options);
+        const response = await fetch('https://blog-point-backend.onrender.com/api/specificBlog', options);
         const json = await response.json()
         if (!json.success) {
             alert('Oops! error loading the Blog...')

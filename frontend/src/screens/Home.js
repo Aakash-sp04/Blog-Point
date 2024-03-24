@@ -19,7 +19,7 @@ export default function Home() {
       },
       body: JSON.stringify({ contentType: search })
     }
-    const response = await fetch('http://localhost:8000/api/blogdata', options);
+    const response = await fetch('https://blog-point-backend.onrender.com/api/blogdata', options);
 
     const json = await response.json()
     if (!json.success) {

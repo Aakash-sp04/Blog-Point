@@ -24,7 +24,7 @@ export default function Post() {
       },
       body: JSON.stringify({ blogId: id })
     }
-    const response = await fetch('http://localhost:8000/api/specificBlog', options);
+    const response = await fetch('https://blog-point-backend.onrender.com/api/specificBlog', options);
     const json = await response.json()
     // console.log(json.blogIdData);
 
@@ -45,7 +45,7 @@ export default function Post() {
       },
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
-    const response = await fetch('http://localhost:8000/api/likeblog', options);
+    const response = await fetch('https://blog-point-backend.onrender.com/api/likeblog', options);
     const json = await response.json()
     // console.log(json);
 
@@ -65,7 +65,7 @@ export default function Post() {
       },
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
-    const response = await fetch('http://localhost:8000/api/unlikeblog', options);
+    const response = await fetch('https://blog-point-backend.onrender.com/api/unlikeblog', options);
     const json = await response.json()
     // console.log(json);
 

@@ -21,7 +21,7 @@ export default function Login() {
         { email: loginInfo.email, password: loginInfo.password }
       ),
     }
-    const response = await fetch("http://localhost:8000/api/loginuser", options)
+    const response = await fetch("https://blog-point-backend.onrender.com/api/loginuser", options)
     const json = await response.json()
     console.log(json);
 
