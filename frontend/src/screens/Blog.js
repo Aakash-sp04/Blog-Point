@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useParams, useNavigate } from 'react-router-dom'
+import Modal from '../Model'
+import { createPortal } from 'react-dom'
 
 export default function Post() {
   const idParam = useParams()
@@ -12,6 +14,7 @@ export default function Post() {
   const imgUrl = 'https://source.unsplash.com/random/900x700?'
 
   const [blogData, setBlogData] = useState('')
+  const [viewComment, setViewComment] = useState(false)
   const loadBlog = async () => {
     // console.log(JSON.stringify({ blogId: id }));
     const options = {
@@ -23,7 +26,7 @@ export default function Post() {
     }
     const response = await fetch('http://localhost:8000/api/specificBlog', options);
     const json = await response.json()
-    console.log(json.blogIdData);
+    // console.log(json.blogIdData);
 
     if (!json.success) {
       alert('Oops! error loading the Blog...')
@@ -107,16 +110,28 @@ export default function Post() {
           </div>
         </div>
 
-        <div className=''>
-          <h5 style={{fontFamily: 'italic', letterSpacing: 3, fontWeight: 'bolder'}}>{blogData.likes === undefined ? 0 : blogData.likes.length} Likes</h5>
-          {blogData?.likes?.includes(localStorage.getItem('userEmail'))
-            ?
-            <i className="material-icons unlike"
-            onClick={() => { handleUserUnlike(blogData._id) }}>thumb_down</i>
-            :
-            <i className="material-icons like"
-              onClick={() => { handleUserLike(blogData._id) }}>thumb_up</i>
-          }
+        <div className='d-flex justify-content-center'>
+          <div className='px-3 d-flex'>
+            <h5 style={{ fontFamily: 'italic', letterSpacing: 3, fontWeight: 'bolder' }}>{blogData.likes === undefined ? 0 : blogData.likes.length}</h5>
+            {blogData?.likes?.includes(localStorage.getItem('userEmail'))
+              ?
+              <i className="material-icons unlike"
+                onClick={() => { handleUserUnlike(blogData._id) }}>thumb_down</i>
+              :
+              <i className="material-icons like"
+                onClick={() => { handleUserLike(blogData._id) }}>thumb_up</i>
+            }
+          </div>
+
+          <div className='px-3 d-flex'>
+            <h5 style={{ fontFamily: 'italic', letterSpacing: 3, fontWeight: 'bolder' }}>{blogData.comments === undefined ? 0 : blogData.comments.length}</h5>
+            <i className='material-icons comment'
+              onClick={() => { setViewComment(true) }}>add_comment</i>
+            {viewComment && createPortal(
+              <Modal onClose={() => { setViewComment(false) }} blogData={blogData}  setCommentCount={(blogData) => {setBlogData(blogData)}} />,
+              document.getElementById('viewComment')
+            )}
+          </div>
         </div>
       </div>
 

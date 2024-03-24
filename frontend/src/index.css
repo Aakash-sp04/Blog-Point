@@ -377,6 +377,13 @@ textarea {
     color: red;
     scale: 1.2;
 }
+.comment{
+    transition: all 0.5s ease-out;
+}
+.comment:hover{
+    color: blue;
+    scale: 1.2;
+}
 
 /* For footer */
 .footer {
