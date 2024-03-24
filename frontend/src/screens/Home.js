@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import Select from 'react-select'
 import categories from '../components/SelectOptionAll'
 import Card from '../components/Card'
+import BASE_URL from '../endpoint'
 
 export default function Home() {
   const [search, setSearch] = useState('all')
@@ -19,7 +20,7 @@ export default function Home() {
       },
       body: JSON.stringify({ contentType: search })
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/blogdata', options);
+    const response = await fetch(`${BASE_URL}/api/blogdata`, options);
 
     const json = await response.json()
     if (!json.success) {

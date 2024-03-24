@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
+import BASE_URL from '../endpoint'
 
 export default function Login() {
   //Maintaining state for user-register info
@@ -21,7 +22,7 @@ export default function Login() {
         { email: loginInfo.email, password: loginInfo.password }
       ),
     }
-    const response = await fetch("https://blog-point-backend.onrender.com/api/loginuser", options)
+    const response = await fetch(`${BASE_URL}/api/loginuser`, options)
     const json = await response.json()
     console.log(json);
 

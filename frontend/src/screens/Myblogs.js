@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
+import BASE_URL from '../endpoint'
 
 export default function Myblogs() {
   const [blogData, setBlogData] = useState([])
@@ -17,7 +18,7 @@ export default function Myblogs() {
       },
       body: JSON.stringify({ userEmail: localStorage.getItem('userEmail') })
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/userblog', options);
+    const response = await fetch(`${BASE_URL}/api/userblog`, options);
     const json = await response.json()
 
     if (!json.success) {

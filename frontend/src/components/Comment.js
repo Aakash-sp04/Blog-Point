@@ -9,12 +9,14 @@ export default function Comment(props) {
         borderStyle: "solid",
         borderWidth: "1px",
         borderColor: "grey",
+        overflowWrap: "break-word",
+        padding: "10px",
     }
     return (
         <div className='d-flex flex-column my-3' style={commentStyle}>
-            <div className='d-flex flex-row justify-content-between pb-2'>
-                <small className='px-5'><i>{props.name}</i></small>
-                <small className='px-5'><i>{props.date}</i></small>
+            <div className='d-flex row'>
+                <small className='px-5 col-sm-6 col-xs-12'><i>{props.name}</i></small>
+                <small className='px-5 col-sm-6 col-xs-12'><i>{props.date}</i></small>
             </div>
             <p className='fs-6'>
                 {props.content}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
+import BASE_URL from '../endpoint'
 
 export default function Register() {
   //Maintaining state for user-register info
@@ -20,7 +21,7 @@ export default function Register() {
           {username : userInfo.username, email : userInfo.email, password : userInfo.password}
         ),
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/createuser', options)
+    const response = await fetch(`${BASE_URL}/api/createuser`, options)
     const json = await response.json()
     console.log(json);
 

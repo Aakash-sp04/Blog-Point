@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useParams, useNavigate } from 'react-router-dom'
+import BASE_URL from '../endpoint'
 
 export default function Post() {
   const idParam = useParams()
@@ -23,7 +24,7 @@ export default function Post() {
         body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
       }
 
-      const response = await fetch('https://blog-point-backend.onrender.com/api/deleteblog', options);
+      const response = await fetch(`${BASE_URL}/api/deleteblog`, options);
       const json = await response.json()
       if (!json.success) {
         alert('Blog not deleted, some error occur...')
@@ -44,7 +45,7 @@ export default function Post() {
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
 
-    const response = await fetch('https://blog-point-backend.onrender.com/api/specificBlog', options);
+    const response = await fetch(`${BASE_URL}/api/specificBlog`, options);
     const json = await response.json()
     if (!json.success) {
       alert('Oops! error loading the Blog...')

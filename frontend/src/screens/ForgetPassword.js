@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
+import BASE_URL from '../endpoint'
 
 export default function ForgetPassword() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function ForgetPassword() {
         { email : email }
       ),
     }
-    const response = await fetch("https://blog-point-backend.onrender.com/api/forgetPasswordUser", options)
+    const response = await fetch(`${BASE_URL}/api/forgetPasswordUser`, options)
     const json = await response.json()
     console.log(json);
 

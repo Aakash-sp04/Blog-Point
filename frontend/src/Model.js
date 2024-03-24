@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Comment from './components/Comment'
+import BASE_URL from './endpoint'
 
 const MODAL_STYLES = {
     position: 'fixed',
@@ -37,7 +38,7 @@ export default function Modal({ onClose, blogData, setCommentCount }) {
             },
             body: JSON.stringify({ blogId: blogData._id, newComment: newComment, commenter: localStorage.getItem('userEmail') })
         }
-        const response = await fetch('http://localhost:8000/api/commentblog', options);
+        const response = await fetch(`${BASE_URL}/api/commentblog`, options);
         const json = await response.json()
 
         if (!json.success) {

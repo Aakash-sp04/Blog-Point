@@ -151,6 +151,7 @@ textarea {
 /*For blog(paragraph) content*/
 .para-content p {
     text-align: justify;
+    overflow-wrap: break-word;
 }
 
 .para-content p::first-letter {

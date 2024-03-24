@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from '../components/Navbar'
+import BASE_URL from '../endpoint'
 
 function ResetPassword() {
     const [password, setPassword] = useState()
@@ -21,7 +22,7 @@ function ResetPassword() {
                 { password: password }
             ),
         }
-        const response = await fetch(`https://blog-point-backend.onrender.com/api/resetPasswordUser/${id}/${token}`, options)
+        const response = await fetch(`${BASE_URL}/api/resetPasswordUser/${id}/${token}`, options)
         const json = await response.json()
         console.log(json);
 

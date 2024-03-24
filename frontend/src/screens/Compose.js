@@ -4,6 +4,7 @@ import Select from 'react-select'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import categories from '../components/SelectOption'
+import BASE_URL from '../endpoint'
 
 export default function Compose() {
   const [postInfo, setPostInfo] = useState({postName:"", postTitle:"", postContent:""})
@@ -24,7 +25,7 @@ export default function Compose() {
         {postName:postInfo.postName, postCategory:postCategory, postTitle:postInfo.postTitle, postContent:postInfo.postContent, loggedInUserEmail:localStorage.getItem('userEmail')}
       ),
     }
-    const response = await fetch("https://blog-point-backend.onrender.com/api/composeblog", options)
+    const response = await fetch(`${BASE_URL}/api/composeblog`, options)
     const json = await response.json()
     console.log(json);
 

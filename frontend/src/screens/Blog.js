@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import { useParams, useNavigate } from 'react-router-dom'
 import Modal from '../Model'
 import { createPortal } from 'react-dom'
+import BASE_URL from '../endpoint'
 
 export default function Post() {
   const idParam = useParams()
@@ -24,7 +25,7 @@ export default function Post() {
       },
       body: JSON.stringify({ blogId: id })
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/specificBlog', options);
+    const response = await fetch(`${BASE_URL}/api/specificBlog`, options);
     const json = await response.json()
     // console.log(json.blogIdData);
 
@@ -45,7 +46,7 @@ export default function Post() {
       },
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/likeblog', options);
+    const response = await fetch(`${BASE_URL}/api/likeblog`, options);
     const json = await response.json()
     // console.log(json);
 
@@ -65,7 +66,7 @@ export default function Post() {
       },
       body: JSON.stringify({ localStrInfo: localStorage.getItem('userEmail'), blogId: id })
     }
-    const response = await fetch('https://blog-point-backend.onrender.com/api/unlikeblog', options);
+    const response = await fetch(`${BASE_URL}/api/unlikeblog`, options);
     const json = await response.json()
     // console.log(json);
 
