@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000
 //For Submitting data to backend 
 //required middleware to write always
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://blog-point-frontend.netlify.app/")
+    res.setHeader("Access-Control-Allow-Origin", "https://blog-point-frontend.netlify.app")
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
